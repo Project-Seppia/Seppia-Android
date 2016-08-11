@@ -9,4 +9,83 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.seppia.android.project_seppia.account.RegisterActivity">
 
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText_RegUsername"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="63dp"
+        android:layout_alignLeft="@+id/editText_RegPassword"
+        android:layout_alignStart="@+id/editText_RegPassword"
+        android:layout_alignRight="@+id/editText_RegPassword"
+        android:layout_alignEnd="@+id/editText_RegPassword"
+        android:hint="username" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_regUsernameErrorMessage"
+        android:layout_below="@+id/editText_RegUsername"
+        android:layout_alignLeft="@+id/editText_RegUsername"
+        android:layout_alignStart="@+id/editText_RegUsername" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:layout_marginTop="34dp"
+        android:layout_gravity="center"
+        android:id="@+id/editText_RegPassword"
+        android:hint="password"
+        android:layout_below="@+id/editText_RegUsername"
+        android:layout_alignLeft="@+id/editText_RegEmail"
+        android:layout_alignStart="@+id/editText_RegEmail" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_regPasswordErrorMessage"
+        android:layout_below="@+id/editText_RegPassword"
+        android:layout_alignLeft="@+id/editText_RegPassword"
+        android:layout_alignStart="@+id/editText_RegPassword" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/editText_RegEmail"
+        android:hint="Email"
+        android:layout_below="@+id/textView_regPasswordErrorMessage"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView_regEmailInputErrorMessage"
+        android:layout_alignStart="@id/editText_RegEmail"
+        android:layout_below="@+id/editText_RegEmail"
+        android:layout_alignLeft="@+id/editText_RegEmail" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="phone"
+        android:ems="10"
+        android:id="@+id/editText_RegPhone"
+        android:hint="phone number"
+        android:layout_below="@+id/textView_regEmailInputErrorMessage"
+        android:layout_alignLeft="@+id/textView_regEmailInputErrorMessage"
+        android:layout_alignStart="@+id/textView_regEmailInputErrorMessage" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="sign up"
+        android:id="@+id/button_RegSignUp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp" />
+
 </RelativeLayout>

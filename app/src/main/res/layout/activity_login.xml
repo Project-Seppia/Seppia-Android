@@ -72,6 +72,15 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="no account yet?  sign up"
+                android:id="@+id/button_goToSignUp"
+                android:layout_gravity="center_horizontal"
+                android:background="@android:color/transparent"
+                android:onClick="openRegisterActivity"/>
+
         </LinearLayout>
     </ScrollView>
 

@@ -3,6 +3,7 @@ package com.seppia.android.project_seppia;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -28,6 +29,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.seppia.android.project_seppia.account.AccountHelper;
+import com.seppia.android.project_seppia.account.RegisterActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,6 +65,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
+    private Button buttonSignUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +87,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             }
         });
 
-
         //this is a test for push
         StringBuilder sb = new StringBuilder();
         sb.trimToSize();
@@ -97,6 +101,13 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
+
+        //initiate AccountHelper
+        AccountHelper.init(getApplicationContext());
+    }
+
+    public void openRegisterActivity(View view){
+        startActivity( new Intent(this, RegisterActivity.class));
     }
 
     private void populateAutoComplete() {
