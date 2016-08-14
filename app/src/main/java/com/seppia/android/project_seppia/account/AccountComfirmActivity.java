@@ -40,7 +40,8 @@ public class AccountComfirmActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String code = confirmCode.getText().toString();
-                AccountHelper.getUserPool().getUser(verifyUser.getText().toString()).confirmSignUpInBackground(code,true,confirmCodeHandler);
+                String user = verifyUser.getText().toString();
+                AccountHelper.getUserPool().getUser(user).confirmSignUpInBackground(code,true,confirmCodeHandler);
             }
         });
     }
@@ -85,18 +86,20 @@ public class AccountComfirmActivity extends AppCompatActivity {
 
     private void showFailureAlertDialog(){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("verification is not successful, request new code?")
-                .setPositiveButton("later", new DialogInterface.OnClickListener() {
+        builder.setTitle("verification failed").
+                setMessage("verification is not successful, request new code?").
+                setNegativeButton("later", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         alertDialog.dismiss();
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                     }
-                })
-                .setPositiveButton("OK",new DialogInterface.OnClickListener(){
+                }).
+                setPositiveButton("OK",new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        AccountHelper.getUserPool().getUser().resendConfirmationCodeInBackground(requestNewCodeHandler);
+                        String userToBeVerified = verifyUser.getText().toString();
+                        AccountHelper.getUserPool().getUser(userToBeVerified).resendConfirmationCodeInBackground(requestNewCodeHandler);
                     }
                 });
         alertDialog = builder.create();
