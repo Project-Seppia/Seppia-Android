@@ -3,6 +3,7 @@ package com.seppia.android.project_seppia.account;
 
 import android.content.Context;
 
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 import com.amazonaws.regions.Regions;
 
@@ -10,6 +11,7 @@ public class AccountHelper {
 
     private static AccountHelper accountHelper;
     private static CognitoUserPool userPool;
+    private static CognitoUser cognitoUser;
 
     // currently following parameters are for UserPool CognitoDemo, will be replaced
     private static final String userPoolId = "us-east-1_dDcvwYYrs";
@@ -36,10 +38,16 @@ public class AccountHelper {
     }
 
     public static boolean isEmailValid(String email){
+        // TODO: more details..
         return email.contains("@");
     }
     public static boolean isPasswordValid(String password){
+        // TODO: more details..
         return password.length()>5;
+    }
+    public static boolean isUsernameValid(String username){
+        // TODO: more details..
+        return username.length()>=4;
     }
 }
 
