@@ -32,6 +32,7 @@ public class RegisterActivity extends AppCompatActivity {
     private TextView email_errorMessage;
 
     private Button signUp;
+    private Button openConfirmActivity;
     private ProgressDialog waitDialog;
 
     private String usernameInput;
@@ -104,6 +105,14 @@ public class RegisterActivity extends AppCompatActivity {
                 AccountHelper.getUserPool().signUpInBackground(usernameInput, userPasswordInput, userAttributes, null, signUpHandler);
             }
         });
+
+        openConfirmActivity = (Button) findViewById(R.id.button_openConfirmActivity);
+        openConfirmActivity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(),AccountComfirmActivity.class));
+            }
+        });
     }
 
     SignUpHandler signUpHandler = new SignUpHandler() {
@@ -121,7 +130,7 @@ public class RegisterActivity extends AppCompatActivity {
                         .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                                startActivity(new Intent(getApplicationContext(), AccountComfirmActivity.class));
                             }
                         })
                         .show();
