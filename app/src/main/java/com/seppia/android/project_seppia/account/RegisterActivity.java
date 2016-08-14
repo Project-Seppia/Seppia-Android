@@ -66,6 +66,10 @@ public class RegisterActivity extends AppCompatActivity {
                     view.setText(username.getHint() + " cannot be empty");
                     return;
                 }
+                if(!AccountHelper.isUsernameValid(usernameInput)){
+                    TextView view = (TextView) findViewById(R.id.textView_regUsernameErrorMessage);
+                    view.setText(username.getHint() + " is not valid");
+                }
 
                 userPasswordInput = password.getText().toString();
                 if (userPasswordInput == null || userPasswordInput.isEmpty()) {
