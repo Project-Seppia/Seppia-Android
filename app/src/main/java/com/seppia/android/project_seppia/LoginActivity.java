@@ -95,7 +95,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         //initiate AccountHelper
         AccountHelper.init(getApplicationContext());
-        findCurrenUser();
+        findCurrentUser();
     }
 
     public void openRegisterActivity(View view){
@@ -236,12 +236,12 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         int IS_PRIMARY = 1;
     }
 
-    private void findCurrenUser(){
+    private void findCurrentUser(){
         CognitoUser cognitoUser = AccountHelper.getCognitoUser();
         username = cognitoUser.getUserId();
         if(username!=null){
             mUsernameView.setText(username);
-            AccountHelper.getUserPool().getUser().getSessionInBackground(authenticationHandler);
+            AccountHelper.getUserPool().getUser().getSessionInBackground(findCurrentSessionHandler);
         }
     }
 
@@ -305,6 +305,37 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             Log.i(TAG, "Fail!");
             Toast.makeText(getApplicationContext(), exception.toString(), Toast.LENGTH_LONG);
             showAlertDialog();
+        }
+    };
+
+    AuthenticationHandler findCurrentSessionHandler = new AuthenticationHandler() {
+        @Override
+        public void onSuccess(CognitoUserSession userSession, CognitoDevice newDevice) {
+            Log.i(TAG, "Success!");
+            Toast.makeText(getApplicationContext(), "Sign in successful", Toast.LENGTH_SHORT);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            intent.putExtra(TAG, "log in success");
+            startActivity(intent);
+        }
+
+        @Override
+        public void getAuthenticationDetails(AuthenticationContinuation authenticationContinuation, String UserId) {
+            Log.i(TAG, "on start get authentication detail");
+        }
+
+        @Override
+        public void getMFACode(MultiFactorAuthenticationContinuation continuation) {
+
+        }
+
+        @Override
+        public void authenticationChallenge(ChallengeContinuation continuation) {
+
+        }
+
+        @Override
+        public void onFailure(Exception exception) {
+            Log.i(TAG, "can not get user session on start");
         }
     };
 
