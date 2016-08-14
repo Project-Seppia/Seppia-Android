@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoDevice;
+import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserSession;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.AuthenticationDetails;
@@ -51,7 +52,7 @@ import static android.Manifest.permission.READ_CONTACTS;
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<Cursor> {
-    public static final String TAG = "Login Activity";
+    public static final String TAG = "LoginActivity";
     /**
      * Id to identity READ_CONTACTS permission request.
      */
@@ -108,9 +109,9 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         mEmailSignInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
-                //mAuthTask = new UserLoginTask();
-                //mAuthTask.execute((Void)null);
-                signIn();
+                mAuthTask = new UserLoginTask();
+                mAuthTask.execute((Void)null);
+                //signIn();
             }
         });
 
@@ -119,6 +120,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
         //initiate AccountHelper
         AccountHelper.init(getApplicationContext());
+        findCurrenUser();
     }
 
     public void openRegisterActivity(View view){
@@ -349,16 +351,31 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         }
     }
 
+    private void findCurrenUser(){
+        CognitoUser cognitoUser = AccountHelper.getCognitoUser();
+        username = cognitoUser.getUserId();
+        if(username!=null){
+            mUsernameView.setText(username);
+            AccountHelper.getUserPool().getUser().getSessionInBackground(authenticationHandler);
+        }
+    }
+
     private void signIn(){
         Log.i(TAG,"start signIn()");
+
+        //at first sign out
+        AccountHelper.getCognitoUser().signOut();
+
         username = mUsernameView.getText().toString();
         if(!AccountHelper.isUsernameValid(username)){
             // TODO: invalid username
+            Toast.makeText(getApplicationContext(),"username is not valid",Toast.LENGTH_SHORT);
             return;
         }
         password = mPasswordView.getText().toString();
         if(!AccountHelper.isPasswordValid(password)){
             // TODO: invalid password
+            Toast.makeText(getApplicationContext(),"password is not valid",Toast.LENGTH_SHORT);
             return;
         }
 

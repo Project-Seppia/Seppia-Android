@@ -2,12 +2,14 @@ package com.seppia.android.project_seppia.account;
 
 
 import android.content.Context;
+import android.util.Log;
 
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUser;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.CognitoUserPool;
 import com.amazonaws.regions.Regions;
 
 public class AccountHelper {
+    public static final String TAG = "AccountHelper";
 
     private static AccountHelper accountHelper;
     private static CognitoUserPool userPool;
@@ -35,6 +37,14 @@ public class AccountHelper {
 
     public static CognitoUserPool getUserPool(){
         return userPool;
+    }
+    public static CognitoUser getCognitoUser(){
+        try {
+            return userPool.getCurrentUser();
+        }catch (Exception exception){
+            Log.i(TAG,"userPool not exists");
+            return null;
+        }
     }
 
     public static boolean isEmailValid(String email){
