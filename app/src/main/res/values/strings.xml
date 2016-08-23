@@ -16,4 +16,19 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="action_settings">Settings</string>
+    <string name="exit_message">Exit?</string>
+    <string name="update_message">Have a new Version, Please update</string>
+    <string name="update_url">http://seppia.jcjxpx.com/m/d</string>
+    <string name="version_url">http://seppia.jcjxpx.com/m/app/version</string>
+    <string name="home_img">"http://seppia.jcjxpx.com/m/img/1st.jpg"</string>
+    <string name="cache_folder">cache</string>
+    <string name="db_folder">database</string>
+    <string name="menu_exit">QUIT</string>
+    <string name="info_net_unavailable">Network unreachable</string>
+    <string name="info_error_net">Exception in Network</string>
+    <string name="info_error_server_token">Login out of date. Please Login!</string>
+    <string name="dialog_ok">Ok</string>
+    <string name="dialog_cancel">Cannel</string>
+    <string name="dialog_return">Back</string>
 </resources>

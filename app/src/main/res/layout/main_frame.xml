@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_frame_mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top|center"
+    android:orientation="vertical" >
+
+    <!-- 头部布局 -->
+
+    <RelativeLayout
+        android:id="@+id/main_frame_titlelayout"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@color/bg_main_frame_title"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <!-- 返回按钮 -->
+
+        <Button
+            android:id="@+id/main_frame_btnGoBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/frame_top_return"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:textColor="@color/text_color_white" />
+        <!-- 页面标题 -->
+
+        <TextView
+            android:id="@+id/main_frame_tvTitle"
+            style="@style/Shadow_Black_Up_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:singleLine="true"
+            android:textColor="@color/text_color_white"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:id="@+id/main_frame_title_rightLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/main_frame_btnTitle"
+                style="@style/Shadow_Black_Up_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/transparence"
+                android:drawablePadding="5dp"
+                android:gravity="right|center_vertical"
+                android:singleLine="true"
+                android:textColor="@color/text_color_white"
+                android:textSize="16sp"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/main_frame_btnOption"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dip"
+                android:background="@color/transparence"
+                android:paddingLeft="10dip"
+                android:paddingRight="10dip"
+                android:text="　　　"
+                android:textColor="@drawable/frame_top_option"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <!-- 功能按钮 -->
+
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/background_color_white"
+            android:orientation="vertical" >
+
+            <!-- 中间动态添加的内容区 -->
+
+            <LinearLayout
+                android:id="@+id/main_frame_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="0dip"
+                android:layout_weight="1"
+                android:baselineAligned="false"
+                android:gravity="top|center"
+                android:orientation="horizontal" />
+
+            <!-- 底部布局 -->
+
+            <LinearLayout
+                android:id="@+id/main_frame_llBottom"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="@color/bg_main_frame_bottom"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/frame_button1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparence"
+                    android:src="@drawable/frame_bottom_tap_index" />
+
+                <ImageButton
+                    android:id="@+id/frame_button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparence"
+                    android:src="@drawable/frame_bottom_tap_search" />
+
+                <ImageButton
+                    android:id="@+id/frame_button3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/transparence"
+                    android:src="@drawable/frame_bottom_tap_my" />
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

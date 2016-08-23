@@ -1,9 +1,8 @@
 package com.seppia.android.project_seppia;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.EditText;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
-        String intentMsg = intent.getStringExtra(LoginActivity.TAG);
+        String intentMsg = intent.getStringExtra("LoginActivity");
         temp_display = (TextView) findViewById(R.id.textView_MA_temp);
         temp_display.setText(intentMsg);
 
