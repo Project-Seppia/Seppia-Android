@@ -17,8 +17,9 @@ import android.widget.TextView;
 
 import com.seppia.android.project_seppia.AppCommon;
 import com.seppia.android.project_seppia.R;
+import com.seppia.android.project_seppia.activity.search.SearchActivity;
 import com.seppia.android.project_seppia.utils.ActivityUtils;
-import com.seppia.android.project_seppia.utils.LogUtils;
+import com.seppia.android.project_seppia.utils.DialogUtils;
 
 /**
  * Frame Page
@@ -156,11 +157,9 @@ public class BaseActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-//				if(ctx.getClass() != SearchActivity.class){
-//					ActivityUtils.jump(ctx, SearchActivity.class, false);
-//				}
-//				DialogUtils.showAlert(ctx, "click", "go to Search page", null);
-				LogUtils.logD(TAG, "go to search page...");
+				if(ctx.getClass() != SearchActivity.class){
+					ActivityUtils.jump(ctx, SearchActivity.class, false);
+				}
 			}
 		});
 
@@ -172,8 +171,7 @@ public class BaseActivity extends Activity {
 //				if(ctx.getClass() != UserCenter.class){
 //					ActivityUtils.jump(ctx, UserCenter.class, false);
 //				}
-//				DialogUtils.showAlert(ctx, "click", "go to UserCenter", null);
-				LogUtils.logD(TAG, "go to UserCenter");
+				DialogUtils.showAlert(ctx, "click", "go to UserCenter", null);
 			}
 		});
 		

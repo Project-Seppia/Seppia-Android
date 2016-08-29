@@ -8,9 +8,6 @@ import android.view.View;
 import android.widget.LinearLayout.LayoutParams;
 
 import com.seppia.android.project_seppia.R;
-import com.seppia.android.project_seppia.dto.JsonPack;
-import com.seppia.android.project_seppia.http.HttpApi;
-import com.seppia.android.project_seppia.utils.LogUtils;
 
 public class IndexActivity extends BaseActivity {
 
@@ -20,17 +17,6 @@ public class IndexActivity extends BaseActivity {
 		super.onCreate(savedInstanceState);
 		
 		initComponent();
-		Thread t = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				LogUtils.logD(TAG, "fetchLocationsByLocation--------------");
-				JsonPack jp = HttpApi.getInstance().fetchLocationsByLocation("37.4561922", "-122.1548878", "5000", "sports");
-				LogUtils.logD(TAG, jp.toString());
-//				DialogUtils.showAlert(ctx, "fetchLocationsByLocation", jp.toString(), null);
-			}
-		});
-//		t.start();
-		t.run();
 	}
 
 	@Override
@@ -46,5 +32,7 @@ public class IndexActivity extends BaseActivity {
 
 		this.getMainLayout().addView(contextView, LayoutParams.MATCH_PARENT,
 				LayoutParams.MATCH_PARENT);
+		this.getTvTitle().setText("HOME");
+		this.getBtnGoBack().setVisibility(View.INVISIBLE);
 	}
 }

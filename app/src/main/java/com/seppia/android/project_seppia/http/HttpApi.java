@@ -1,6 +1,8 @@
 package com.seppia.android.project_seppia.http;
 
+import com.seppia.android.project_seppia.Settings;
 import com.seppia.android.project_seppia.dto.JsonPack;
+import com.seppia.android.project_seppia.utils.IOUtils;
 import com.seppia.android.project_seppia.utils.LogUtils;
 
 import org.apache.http.NameValuePair;
@@ -58,18 +60,21 @@ public class HttpApi {
 	}
 
 	public JsonPack fetchLocationsByLocation(String lat, String lng, String radius, String keyword){
-		try {
-			List<NameValuePair> pairList = new ArrayList<>();
-			pairList.add(new BasicNameValuePair("lat", lat));
-			pairList.add(new BasicNameValuePair("lng", lng));
-			pairList.add(new BasicNameValuePair("radius", radius));
-			pairList.add(new BasicNameValuePair("keyword", keyword));
+		String fetchLocationsByLocationStr = IOUtils.readStringFromAssets(Settings.GLOBAL_CONTEXT, "sample.min.json");
+		LogUtils.logD(TAG, "fetchLocationsByLocation: " + fetchLocationsByLocationStr);
+		return JsonPack.toBean(fetchLocationsByLocationStr);
+//		try {
+//			List<NameValuePair> pairList = new ArrayList<>();
+//			pairList.add(new BasicNameValuePair("lat", lat));
+//			pairList.add(new BasicNameValuePair("lng", lng));
+//			pairList.add(new BasicNameValuePair("radius", radius));
+//			pairList.add(new BasicNameValuePair("keyword", keyword));
 //			return HttpUtils.doGet(URL_API_SEARCH_BY_LOCATION, pairList);
-			return HttpUtils.doGet(URL_API_SEARCH_BY_LOCATION, null);
-		} catch (Exception e) {
-			logE(e);
-			return new JsonPack();
-		}
+////			return HttpUtils.doGet(URL_API_SEARCH_BY_LOCATION, null);
+//		} catch (Exception e) {
+//			logE(e);
+//			return new JsonPack();
+//		}
 	}
 
 	private static void logE(Throwable tr) {
