@@ -1,4 +1,4 @@
-package com.seppia.android.project_seppia;
+package com.seppia.android.project_seppia.account;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -43,6 +43,8 @@ import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.Auth
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.ChallengeContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.continuations.MultiFactorAuthenticationContinuation;
 import com.amazonaws.mobileconnectors.cognitoidentityprovider.handlers.AuthenticationHandler;
+import com.seppia.android.project_seppia.MainActivity;
+import com.seppia.android.project_seppia.R;
 import com.seppia.android.project_seppia.account.AccountHelper;
 import com.seppia.android.project_seppia.account.RegisterActivity;
 
