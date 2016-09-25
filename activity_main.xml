@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/Sign_In"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    tools:context="com.Seppia.MainActivity">
+
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/Logo_00"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="Forget Password"
+        android:typeface="sans"
+        android:layout_width="240dp"
+        android:layout_height="50dp"
+        android:id="@+id/button_03"
+        android:background="@drawable/Shape"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/button_01"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:hint="Password"
+        android:gravity="center"
+        android:background="@drawable/bg_edittext"
+        android:id="@+id/editText_02"
+        android:layout_alignTop="@+id/Logo_01"
+        android:layout_toEndOf="@+id/Logo_01" />
+
+    <EditText
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:hint="Email"
+        android:gravity="center"
+        android:background="@drawable/bg_edittext"
+        android:id="@+id/editText_01"
+        android:layout_alignBottom="@+id/Logo_02"
+        android:layout_toEndOf="@+id/Logo_02"
+        android:layout_marginBottom="10dp" />
+
+    <Button
+        android:text="sign up"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/button_02"
+        android:background="@drawable/Shape"
+        android:textColor="#FFFFFF"
+        android:layout_alignBaseline="@+id/button_01"
+        android:layout_alignBottom="@+id/button_01"
+        android:layout_alignEnd="@+id/button_03" />
+
+    <Button
+        android:text="sign in"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:id="@+id/button_01"
+        android:background="@drawable/Shape"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="116dp"
+        android:layout_below="@+id/Logo_02"
+        android:layout_alignStart="@+id/button_03" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:id="@+id/Logo_02"
+        android:layout_marginTop="25dp"
+        android:layout_marginStart="27dp"
+        android:layout_below="@+id/Logo_01"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:srcCompat="@android:mipmap/sym_def_app_icon"
+        android:id="@+id/Logo_01"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/Logo_00"
+        android:layout_alignStart="@+id/Logo_02" />
+
+    <CheckBox
+
+        android:layout_width="200dp"
+        android:layout_height="25dp"
+        android:text="Remember my Password"
+        android:id="@+id/checkBox_01"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/Logo_02"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>
+
